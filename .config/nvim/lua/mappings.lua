@@ -15,4 +15,9 @@ vim.keymap.set('n', '<F12>', function() require('dap').step_out() end, {desc = "
 vim.keymap.set('n', '<Leader>db', function() require('dap').toggle_breakpoint() end, {desc = "DAP toogle breakpoint"})
 vim.keymap.set('n', '<Leader>dp', function() require('dap').repl.open() end)
 vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")
+vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
+vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
+-- go to the error in the code 
+vim.keymap.set("n", "<leader>ne", vim.diagnostic.goto_next) -- next err
+vim.keymap.set("n", "<leader>pe", vim.diagnostic.goto_prev) -- previous err

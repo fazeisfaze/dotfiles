@@ -14,14 +14,6 @@ for _, lsp in ipairs(servers) do
     capabilities = nvlsp.capabilities,
   }
 end
-lspconfig.rust_analyzer.setup {
-    settings = {
-        ["rust-analyzer"] = {
-            cargo = {allFeatures = true},
-        },
-    },
-    capabilities = require("cmp_nvim_lsp").default_capabilities(),
-}
 -- configuring single server, example: typescript
 -- lspconfig.ts_ls.setup {
 --   on_attach = nvlsp.on_attach,
