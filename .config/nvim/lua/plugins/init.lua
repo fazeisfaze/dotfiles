@@ -1,11 +1,11 @@
 return {
     {
         "stevearc/conform.nvim",
-        event = 'BufWritePre', -- uncomment for format on save
+        event = "BufWritePre", -- uncomment for format on save
         opts = require "configs.conform",
     },
 
-   -- These are some examples, uncomment them if you want to see them work!
+    -- These are some examples, uncomment them if you want to see them work!
     {
         "neovim/nvim-lspconfig",
         config = function()
@@ -20,31 +20,28 @@ return {
             "nvim-treesitter/nvim-treesitter-textobjects",
         },
         config = function()
-            require("configs.treesitter")
+            require "configs.treesitter"
         end,
     },
     {
         "NvChad/nvterm",
         config = function()
-            require("configs.nvterm")
+            require "configs.nvterm"
         end,
-
     },
     {
         "nvim-treesitter/nvim-treesitter-textobjects",
         config = function()
-            require("configs.treesitter-textobject")
+            require "configs.treesitter-textobject"
         end,
     },
     {
         "smoka7/hop.nvim",
         version = "*",
-        event = {"BufReadPre", "BufNewFile"},
+        event = { "BufReadPre", "BufNewFile" },
         config = function()
-            require("configs.hop")
+            require "configs.hop"
         end,
-
-
     },
     {
         "mfussenegger/nvim-dap",
@@ -54,11 +51,11 @@ return {
         event = "VeryLazy",
         dependencies = {
             "mfussenegger/nvim-dap",
-            "nvim-neotest/nvim-nio"
+            "nvim-neotest/nvim-nio",
         },
-        config = function ()
-            local dap = require("dap")
-            local dapui = require("dapui")
+        config = function()
+            local dap = require "dap"
+            local dapui = require "dapui"
             dapui.setup()
             dap.listeners.after.event_initialized["dapui_config"] = function()
                 dapui.open()
@@ -69,10 +66,7 @@ return {
             dap.listeners.before.event_exited["dapui_config"] = function()
                 dapui.close()
             end
-
-
-        end
-
+        end,
     },
     {
         "jay-babu/mason-nvim-dap.nvim",
@@ -85,19 +79,19 @@ return {
             handlers = {},
             ensure_installed = {
                 "codelldb",
-            }
-        }
+            },
+        },
     },
     {
         "A7lavinraj/assistant.nvim",
         event = "VeryLazy",
         dependencies = { "stevearc/dressing.nvim" }, -- optional but recommended
         keys = {
-            { "<leader>a", "<cmd>AssistantToggle<cr>", desc = "Toggle Assistant.nvim window" }
+            { "<leader>a", "<cmd>AssistantToggle<cr>", desc = "Toggle Assistant.nvim window" },
         },
         opts = {},
-        config = function ()
-            require("configs.assitant")
+        config = function()
+            require "configs.assitant"
         end,
     },
     {
@@ -124,6 +118,27 @@ return {
             { "<c-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
             { "<c-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
         },
-    }
+    },
+    {
+        "windwp/nvim-ts-autotag",
+        event = "VeryLazy",
+        opts = {
+            -- Defaults
+            enable_close = true, -- Auto close tags
+            enable_rename = true, -- Auto rename pairs of tags
+            enable_close_on_slash = false, -- Auto close on trailing </
+        },
+        -- Also override individual filetype configs, these take priority.
+        -- Empty by default, useful if one of the "opts" global settings
+        -- doesn't work well in a specific filetype
+        config = function()
+            require("nvim-ts-autotag").setup()
+            per_filetype = {
+                ["html"] = {
+                    enable_close = false,
+                },
+            }
+        end,
 
+    }
 }
