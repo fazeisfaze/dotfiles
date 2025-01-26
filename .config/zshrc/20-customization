@@ -1,13 +1,12 @@
 # -----------------------------------------------------
 # CUSTOMIZATION
 # -----------------------------------------------------
-POSH=agnoster
 
 # -----------------------------------------------------
 # oh-myzsh themes: https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # -----------------------------------------------------
-# ZSH_THEME=robbyrussell
 
+# ZSH_THEME=robbyrussell
 # -----------------------------------------------------
 # oh-myzsh plugins
 # -----------------------------------------------------
@@ -23,7 +22,6 @@ plugins=(
     copybuffer
     dirhistory
 )
-
 # Set-up oh-my-zsh
 source $ZSH/oh-my-zsh.sh
 
@@ -41,8 +39,8 @@ setopt appendhistory
 # -----------------------------------------------------
 # Prompt
 # -----------------------------------------------------
-# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/zen.toml)"
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/EDM115-newline.omp.json)"
+eval "$(oh-my-posh init zsh --config https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/refs/heads/main/themes/negligible.omp.json)"
+# eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/EDM115-newline.omp.json)"
 
 #-----------------------------------------------------
 #Zoxide
