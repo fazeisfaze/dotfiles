@@ -8,7 +8,17 @@ local M = {}
 M.base46 = {
   theme = "solarized_osaka",
   transparency = true,
-  hl_override = {},
+  hl_override = {
+    ["@comment"] = {
+      italic = true,
+    },
+    ["@keyword.return"] = {
+      italic = true,
+    },
+    Constant = {
+      italic = true,
+    },
+  },
 }
 M.ui = {
   statusline = {
