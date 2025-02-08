@@ -3,7 +3,7 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 
 -- EXAMPLE
-local servers = { "html", "cssls", "clangd", "rust-analyzer" }
+local servers = { "html", "cssls", "clangd", "rust_analyzer" }
 local nvlsp = require "nvchad.configs.lspconfig"
 
 -- lsps with default config
@@ -65,3 +65,5 @@ lspconfig.ts_ls.setup {
     },
   },
 }
+lspconfig.tailwindcss.setup {}
+lspconfig.rust_analyzer.setup {}
